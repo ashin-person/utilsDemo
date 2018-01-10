@@ -8,7 +8,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 
 /**
- * 文本工具
+ * 文件工具
  * Created by Ashin Liang on 2018/1/10.
  */
 public class FileUtils {
@@ -27,10 +27,11 @@ public class FileUtils {
             if (StringUtils.isNotBlank(resFilePath)&&StringUtils.isNotBlank(tarFilePath)){
                 File srcFile = new File(resFilePath);
                 if (!srcFile.exists()){
-                    srcFile.createNewFile();
+                    System.out.println("源文件不存在");
+                    return false;
                 }
                 File tarFile = new File(tarFilePath);
-                if (!tarFile.exists()){
+                if (!tarFile.exists()){//目标文件不存在则创建目标文件
                     tarFile.createNewFile();
                 }
                 fileInputStream = new FileInputStream(srcFile);
